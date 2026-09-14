@@ -1,0 +1,17 @@
+# Static site: no build step, publish the project root.
+# (netlify deploy skips dotfiles such as .claude/ automatically)
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Photos rarely change; let browsers keep them for a week.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

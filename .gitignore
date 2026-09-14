@@ -1,0 +1,10 @@
+# Local Netlify folder
+.netlify
+
+# Local editor / assistant config (machine-specific paths)
+.claude/
+
+# OS clutter
+Thumbs.db
+Desktop.ini
+.DS_Store
