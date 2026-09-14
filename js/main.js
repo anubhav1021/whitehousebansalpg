@@ -58,7 +58,7 @@
     nav.classList.remove('menu-open');
     d.body.classList.remove('no-scroll');
     lenis?.start();
-    menuTimer = setTimeout(() => { menu.hidden = true; }, 400);
+    menuTimer = setTimeout(() => { menu.hidden = true; }, 720); // after the circle closes
     if (returnFocus) menuBtn.focus();
   };
   menuBtn.addEventListener('click', () => (menu.hidden ? openMenu() : closeMenu()));
@@ -107,6 +107,28 @@
 
   // Keep keyboard focus from hiding behind the nav
   d.addEventListener('focusin', () => nav.classList.remove('hide'));
+
+  /* ---------- Mobile quick-contact bar ---------- */
+  const dock = $('.dock');
+  if (dock) {
+    let typing = false;
+    const updateDock = () => dock.classList.toggle('show', window.scrollY > 480 && !typing);
+    window.addEventListener('scroll', updateDock, { passive: true });
+    // Get out of the way while the on-screen keyboard is up
+    d.addEventListener('focusin', (e) => { typing = e.target.matches('input, textarea, select'); updateDock(); });
+    d.addEventListener('focusout', () => { typing = false; setTimeout(updateDock, 100); });
+    updateDock();
+  }
+
+  /* ---------- Eyebrow rules draw in ---------- */
+  if ('IntersectionObserver' in window) {
+    const eyebrowIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); eyebrowIO.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    $$('.eyebrow').forEach((el) => eyebrowIO.observe(el));
+  } else {
+    $$('.eyebrow').forEach((el) => el.classList.add('in'));
+  }
 
   /* ---------- Active nav link ---------- */
   const navLinks = $$('.nav-links a');
@@ -184,8 +206,19 @@
 
     $$('[data-split]').forEach(splitWords);
 
-    // Hero intro
-    const intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    // Intro screen (first visit per session) lifts away, then the hero plays in
+    const preloader = $('.preloader');
+    const showIntro = !!preloader && getComputedStyle(preloader).display !== 'none';
+    if (showIntro) {
+      try { sessionStorage.setItem('wh-intro', '1'); } catch (_) { /* storage unavailable */ }
+      gsap.timeline({ delay: 1.3, onComplete: () => preloader.remove() })
+        .to('.pl-inner, .pl-bar', { y: -36, autoAlpha: 0, duration: 0.45, ease: 'power2.in' })
+        .to(preloader, { yPercent: -100, duration: 1, ease: 'expo.inOut' }, 0.15);
+    } else {
+      preloader?.remove();
+    }
+
+    const intro = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: showIntro ? 1.55 : 0 });
     intro
       .from(nav, { yPercent: -100, autoAlpha: 0, duration: 1, clearProps: 'transform,opacity,visibility' })
       .from('.hero h1 .wi', { yPercent: 115, duration: 1.2, stagger: 0.045 }, 0.15)
@@ -211,7 +244,7 @@
     $$('[data-split]').forEach((h) => {
       if (h.closest('.hero')) return;
       gsap.from($$('.wi', h), {
-        yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.035,
+        yPercent: 115, rotate: 5, transformOrigin: '0% 100%', duration: 1.15, ease: 'expo.out', stagger: 0.04,
         scrollTrigger: { trigger: h, start: 'top 88%' },
       });
     });
@@ -227,7 +260,8 @@
     // Staggered groups
     $$('[data-stagger]').forEach((group) => {
       gsap.from(group.children, {
-        y: 48, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.07,
+        y: 56, scale: 0.96, rotationX: -10, transformPerspective: 900, transformOrigin: '50% 100%',
+        autoAlpha: 0, duration: 1.1, ease: 'expo.out', stagger: 0.08,
         scrollTrigger: { trigger: group, start: 'top 86%' },
       });
     });
@@ -252,6 +286,77 @@
         });
     });
 
+    // Photos drift slightly slower than the page (parallax)
+    $$('.ph[data-parallax] img').forEach((img) => {
+      gsap.fromTo(img, { yPercent: -6 }, {
+        yPercent: 6, ease: 'none',
+        scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
+      });
+    });
+
+    // Room photos wipe up into view
+    $$('.room .ph').forEach((ph) => {
+      gsap.fromTo(ph, { clipPath: 'inset(100% 0% 0% 0%)' }, {
+        clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'expo.inOut', clearProps: 'clipPath',
+        scrollTrigger: { trigger: ph, start: 'top 88%' },
+      });
+    });
+
+    // Dark food section opens out to full width as it scrolls in
+    // The side clip must stay inside the empty gutter so it never cuts into text;
+    // screens without a wide gutter get a gentle zoom instead.
+    $$('[data-expand]').forEach((sec) => {
+      const inner = $('.container', sec);
+      const gutter = (sec.clientWidth - inner.clientWidth) / 2;
+      const side = Math.min(7, Math.max(0, ((gutter - 12) / sec.clientWidth) * 100));
+      const [from, to] = side >= 2
+        ? [{ clipPath: `inset(0% ${side}% 0% ${side}% round 48px)` }, { clipPath: 'inset(0% 0% 0% 0% round 0px)' }]
+        : [{ scale: 0.94, transformOrigin: '50% 0%' }, { scale: 1 }];
+      gsap.fromTo(sec, from, {
+        ...to, ease: 'none',
+        scrollTrigger: { trigger: sec, start: 'top bottom', end: 'top 35%', scrub: 0.6 },
+      });
+    });
+
+    // Amenity and meal icons pop in after their tiles
+    $$('.amen-grid, .meals').forEach((group) => {
+      gsap.from($$('.ic-tile, .meal-ic', group), {
+        scale: 0, rotate: -35, duration: 0.8, ease: 'back.out(2.2)', stagger: 0.06, delay: 0.25,
+        clearProps: 'transform', // hand back to the CSS hover wobble
+        scrollTrigger: { trigger: group, start: 'top 82%' },
+      });
+    });
+
+    // Facility strip: steady loop that speeds up with scroll velocity
+    const track = $('.marquee-track');
+    if (track) {
+      track.style.animation = 'none';
+      const loop = gsap.to(track, { xPercent: -50, ease: 'none', duration: 38, repeat: -1 });
+      ScrollTrigger.create({
+        start: 0, end: 'max',
+        onUpdate: (self) => {
+          const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 320, 7);
+          gsap.to(loop, {
+            timeScale: boost, duration: 0.25, overwrite: true,
+            onComplete: () => gsap.to(loop, { timeScale: 1, duration: 1.4, ease: 'power2.out' }),
+          });
+        },
+      });
+      if (finePointer) {
+        track.parentElement.addEventListener('pointerenter', () => gsap.to(loop, { timeScale: 0.15, duration: 0.6, overwrite: true }));
+        track.parentElement.addEventListener('pointerleave', () => gsap.to(loop, { timeScale: 1, duration: 0.6, overwrite: true }));
+      }
+    }
+
+    // Footer wordmark letters rise one by one
+    $$('[data-letters]').forEach((el) => {
+      el.innerHTML = [...el.textContent].map((c) => `<span class="ch">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+      gsap.from($$('.ch', el), {
+        yPercent: 60, autoAlpha: 0, rotate: 8, duration: 1, ease: 'expo.out', stagger: 0.045,
+        scrollTrigger: { trigger: el, start: 'top 95%' },
+      });
+    });
+
     // Location route: draw path + walker
     const route = $('.route-draw');
     if (route) {
@@ -267,6 +372,7 @@
           { motionPath: { path: route, align: route, alignOrigin: [0.5, 0.5], start: 0, end: 1 }, ease: 'none', duration: 1 }, 0);
       }
       tl.from('.pin-end', { scale: 0, transformOrigin: '50% 100%', ease: 'back.out(2.5)', duration: 0.2 }, 0.8);
+      tl.from('.route-chip', { scale: 0, autoAlpha: 0, transformOrigin: '50% 50%', ease: 'back.out(2)', duration: 0.2 }, 0.45);
     }
 
     // Big footer word drift

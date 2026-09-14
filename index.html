@@ -6,7 +6,7 @@
   <title>White House Bansal PG | Boys PG 300 m from Bennett University, Greater Noida</title>
   <meta name="description" content="White House Bansal PG is a boys PG just 300 metres from Bennett University, Greater Noida. AC and Non-AC rooms with attached washrooms, 3 pure-veg meals included, high-speed Wi-Fi, solar power backup, daily cleaning and CCTV.">
   <meta name="keywords" content="PG near Bennett University, boys PG Greater Noida, hostel near Bennett University, PG in Dadha Greater Noida, White House Bansal PG">
-  <meta name="theme-color" content="#0E1A2B">
+  <meta name="theme-color" content="#0B1B33">
   <link rel="canonical" href="https://whitehousebansalpg.netlify.app/">
 
   <!-- Link previews (WhatsApp, Instagram, Google) need absolute URLs -->
@@ -30,6 +30,7 @@
 
   <script>
     document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('wh-intro')) document.documentElement.classList.add('intro-seen'); } catch (e) {}
     // Photo slots: hide a missing photo and fall back to the placeholder underneath.
     function phFail(img) { var b = img.closest('button'); if (b) b.disabled = true; img.remove(); }
   </script>
@@ -109,6 +110,14 @@
 </svg>
 
 <a class="skip-link" href="#main">Skip to main content</a>
+<div class="preloader" aria-hidden="true">
+  <div class="pl-inner">
+    <svg class="pl-mark" viewBox="0 0 64 64"><path d="M14 30 32 15l18 15M19 27v22h26V27M28 49V38h8v11"/></svg>
+    <p class="pl-word"><span>White House</span></p>
+    <p class="pl-sub">Bansal PG</p>
+  </div>
+  <span class="pl-bar"><span></span></span>
+</div>
 <div class="progress" aria-hidden="true"></div>
 
 <!-- ============ NAV ============ -->
@@ -163,6 +172,7 @@
     <div class="hero-bg" aria-hidden="true">
       <span class="blob blob-a"></span>
       <span class="blob blob-b"></span>
+      <span class="blob blob-c"></span>
     </div>
 
     <div class="container hero-grid">
@@ -181,7 +191,7 @@
         </p>
 
         <div class="hero-cta" data-hero-fade>
-          <a class="btn btn-primary" href="#enquire" data-magnetic>
+          <a class="btn btn-primary btn-shine" href="#enquire" data-magnetic>
             Enquire now <svg class="ic ic-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
           <a class="btn btn-ghost" href="tel:+918006652971" data-magnetic>
@@ -203,11 +213,11 @@
             <defs>
               <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#DCE6F2"/>
-                <stop offset="1" stop-color="#F8F5EE"/>
+                <stop offset="1" stop-color="#F5F7FB"/>
               </linearGradient>
               <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0" stop-color="#FFFFFF"/>
-                <stop offset="1" stop-color="#F0ECE2"/>
+                <stop offset="1" stop-color="#EDF1F7"/>
               </linearGradient>
             </defs>
             <rect width="480" height="520" fill="url(#sky)"/>
@@ -215,8 +225,8 @@
             <g class="cloud c1" fill="#fff"><ellipse cx="92" cy="74" rx="40" ry="13"/><ellipse cx="116" cy="64" rx="22" ry="14"/></g>
             <g class="cloud c2" fill="#fff" opacity=".9"><ellipse cx="412" cy="222" rx="30" ry="10"/><ellipse cx="396" cy="214" rx="17" ry="11"/></g>
 
-            <rect y="462" width="480" height="58" fill="#EAE3D4"/>
-            <rect y="458" width="480" height="6" fill="#DAD1BE"/>
+            <rect y="462" width="480" height="58" fill="#E2E8F0"/>
+            <rect y="458" width="480" height="6" fill="#D0D8E3"/>
 
             <g class="bld">
               <!-- solar panels -->
@@ -233,12 +243,12 @@
               <text x="240" y="70" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="8.5" font-weight="600" letter-spacing="3.5" fill="#F5F3EE">BANSAL PG</text>
 
               <!-- body -->
-              <rect x="70" y="102" width="340" height="16" rx="3" fill="#fff" stroke="#D9D1C1"/>
-              <rect x="82" y="118" width="316" height="344" fill="url(#wall)" stroke="#D9D1C1"/>
-              <rect x="232" y="118" width="16" height="258" fill="#F3EFE6"/>
-              <rect x="76" y="204" width="328" height="8" fill="#fff" stroke="#D9D1C1"/>
-              <rect x="76" y="290" width="328" height="8" fill="#fff" stroke="#D9D1C1"/>
-              <rect x="76" y="376" width="328" height="8" fill="#fff" stroke="#D9D1C1"/>
+              <rect x="70" y="102" width="340" height="16" rx="3" fill="#fff" stroke="#D3DBE6"/>
+              <rect x="82" y="118" width="316" height="344" fill="url(#wall)" stroke="#D3DBE6"/>
+              <rect x="232" y="118" width="16" height="258" fill="#EFF3F8"/>
+              <rect x="76" y="204" width="328" height="8" fill="#fff" stroke="#D3DBE6"/>
+              <rect x="76" y="290" width="328" height="8" fill="#fff" stroke="#D3DBE6"/>
+              <rect x="76" y="376" width="328" height="8" fill="#fff" stroke="#D3DBE6"/>
 
               <!-- windows: floor 3 -->
               <rect class="win" x="102" y="134" width="50" height="54" rx="4"/>
@@ -257,7 +267,7 @@
               <rect class="win" x="328" y="306" width="50" height="54" rx="4"/>
               <!-- mullions + sills -->
               <path d="M127 134v54M193 134v54M287 134v54M353 134v54M127 220v54M193 220v54M287 220v54M353 220v54M127 306v54M193 306v54M287 306v54M353 306v54" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
-              <path d="M98 190h58M164 190h58M258 190h58M324 190h58M98 276h58M164 276h58M258 276h58M324 276h58M98 362h58M164 362h58M258 362h58M324 362h58" stroke="#E2DACA" stroke-width="4" stroke-linecap="round"/>
+              <path d="M98 190h58M164 190h58M258 190h58M324 190h58M98 276h58M164 276h58M258 276h58M324 276h58M98 362h58M164 362h58M258 362h58M324 362h58" stroke="#DAE1EB" stroke-width="4" stroke-linecap="round"/>
 
               <!-- ground floor -->
               <rect class="win" x="100" y="400" width="84" height="42" rx="4"/>
@@ -265,11 +275,11 @@
               <path d="M212 462v-50a28 28 0 0 1 56 0v50Z" fill="#0E1A2B"/>
               <rect x="198" y="388" width="84" height="8" rx="2" fill="#C9973B"/>
               <circle class="lamp" cx="290" cy="416" r="4" fill="#F6C667"/>
-              <rect x="204" y="462" width="72" height="6" fill="#D5CBB6"/>
+              <rect x="204" y="462" width="72" height="6" fill="#C9D2DE"/>
 
               <!-- boundary wall -->
-              <rect x="0" y="446" width="196" height="16" fill="#fff" stroke="#D9D1C1"/>
-              <rect x="284" y="446" width="196" height="16" fill="#fff" stroke="#D9D1C1"/>
+              <rect x="0" y="446" width="196" height="16" fill="#fff" stroke="#D3DBE6"/>
+              <rect x="284" y="446" width="196" height="16" fill="#fff" stroke="#D3DBE6"/>
 
               <!-- trees -->
               <rect x="34" y="398" width="6" height="50" fill="#7A6A55"/>
@@ -384,7 +394,7 @@
 
       <div class="rooms" data-stagger>
         <article class="room" data-tilt>
-          <figure class="ph">
+          <figure class="ph" data-parallax>
             <img src="images/room-ac.jpg" alt="AC room at White House Bansal PG" loading="lazy" width="1200" height="750" onload="this.classList.add('ok')" onerror="phFail(this)">
             <figcaption class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-snow"/></svg>AC Room</figcaption>
           </figure>
@@ -410,7 +420,7 @@
         </article>
 
         <article class="room" data-tilt>
-          <figure class="ph">
+          <figure class="ph" data-parallax>
             <img src="images/room-nonac.jpg" alt="Non-AC room with two single beds, a wardrobe and a ceiling fan" loading="lazy" width="588" height="435" onload="this.classList.add('ok')" onerror="phFail(this)">
             <figcaption class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg>Non-AC Room</figcaption>
           </figure>
@@ -447,14 +457,14 @@
       </div>
 
       <ul class="amen-grid" data-stagger>
-        <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg></span><h3>High-speed Wi-Fi</h3><p>For assignments, online classes and projects.</p></li>
+        <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg></span><h3>High&#8209;speed Wi&#8209;Fi</h3><p>For assignments, online classes and projects.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-snow"/></svg></span><h3>Air conditioning</h3><p>AC rooms for the hot summer months.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg></span><h3>Solar power backup</h3><p>Stay powered through power cuts.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-bath"/></svg></span><h3>Attached washroom</h3><p>A private washroom with every room.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></span><h3>Daily cleaning</h3><p>Rooms cleaned every day.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-washer"/></svg></span><h3>Washing machine</h3><p>Do your laundry in-house.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-cctv"/></svg></span><h3>CCTV</h3><p>Cameras keep the premises secure.</p></li>
-        <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-bike"/></svg></span><h3>2-wheeler parking</h3><p>Space for your bike or scooter.</p></li>
+        <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-bike"/></svg></span><h3>2&#8209;wheeler parking</h3><p>Space for your bike or scooter.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-fridge"/></svg></span><h3>Fridge</h3><p>Keep water, fruit and snacks cool.</p></li>
         <li class="amen"><span class="ic-tile"><svg class="ic" aria-hidden="true"><use href="#i-medical"/></svg></span><h3>Medical help</h3><p>Support when you're unwell.</p></li>
       </ul>
@@ -462,7 +472,7 @@
   </section>
 
   <!-- ============ FOOD ============ -->
-  <section class="section section-dark" id="food" aria-labelledby="food-title">
+  <section class="section section-dark" data-expand id="food" aria-labelledby="food-title">
     <span class="food-glow" aria-hidden="true"></span>
     <div class="container">
       <div class="section-head section-head-split">
@@ -520,29 +530,29 @@
       <div class="gallery" data-gallery>
         <div class="g-row">
           <button class="g-tile g-building" type="button" style="--r:1.012" data-label="The building at night">
-            <span class="ph"><img src="images/building.jpg" alt="White House Bansal PG building lit up at night" loading="lazy" width="1206" height="1192" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/building.jpg" alt="White House Bansal PG building lit up at night" loading="lazy" width="1206" height="1192" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">Building</span>
           </button>
           <button class="g-tile g-festive" type="button" style="--r:.825" data-label="Festive lights on the building">
-            <span class="ph"><img src="images/festive-lights.jpg" alt="The PG building decorated with festive string lights" loading="lazy" width="1206" height="1462" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/festive-lights.jpg" alt="The PG building decorated with festive string lights" loading="lazy" width="1206" height="1462" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">Festive lights</span>
           </button>
           <button class="g-tile g-balcony" type="button" style="--r:.754" data-label="Balcony">
-            <span class="ph"><img src="images/balcony.jpg" alt="Tiled balcony outside the rooms, with trees beyond" loading="lazy" width="1206" height="1600" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/balcony.jpg" alt="Tiled balcony outside the rooms, with trees beyond" loading="lazy" width="1206" height="1600" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">Balcony</span>
           </button>
         </div>
         <div class="g-row">
           <button class="g-tile g-room" type="button" style="--r:1.347" data-label="AC room">
-            <span class="ph"><img src="images/room-ac.jpg" alt="AC room with two beds, study tables and chairs" loading="lazy" width="1206" height="895" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/room-ac.jpg" alt="AC room with two beds, study tables and chairs" loading="lazy" width="1206" height="895" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">AC room</span>
           </button>
           <button class="g-tile g-nonac" type="button" style="--r:1.352" data-label="Non-AC room">
-            <span class="ph"><img src="images/room-nonac.jpg" alt="Non-AC room with two single beds, a wardrobe and a ceiling fan" loading="lazy" width="588" height="435" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/room-nonac.jpg" alt="Non-AC room with two single beds, a wardrobe and a ceiling fan" loading="lazy" width="588" height="435" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">Non-AC room</span>
           </button>
           <button class="g-tile g-wash" type="button" style="--r:1.295" data-label="Attached washroom">
-            <span class="ph"><img src="images/washroom.jpg" alt="Tiled attached washroom with western toilet" loading="lazy" width="1206" height="931" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
+            <span class="ph" data-parallax><img src="images/washroom.jpg" alt="Tiled attached washroom with western toilet" loading="lazy" width="1206" height="931" onload="this.classList.add('ok')" onerror="phFail(this)"><span class="ph-fallback"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span></span>
             <span class="g-label">Washroom</span>
           </button>
         </div>
@@ -562,33 +572,33 @@
         <div class="route-card" data-reveal>
           <svg class="route-svg" viewBox="0 0 460 260" role="img" aria-labelledby="routeTitle">
             <title id="routeTitle">Schematic route: White House Bansal PG to Bennett University, about 300 metres or a 10-minute walk</title>
-            <rect width="460" height="260" rx="18" fill="#F1ECE1"/>
-            <g fill="#FBF9F4" stroke="#E6DFD0">
+            <rect width="460" height="260" rx="18" fill="#E9EEF5"/>
+            <g fill="#F8FAFD" stroke="#DCE3EC">
               <rect x="20" y="20" width="200" height="150" rx="10"/>
               <rect x="280" y="112" width="160" height="58" rx="10"/>
               <rect x="20" y="222" width="200" height="30" rx="8"/>
               <rect x="280" y="222" width="160" height="30" rx="8"/>
             </g>
-            <rect x="286" y="18" width="150" height="46" rx="10" fill="#EFE3C9" stroke="#E3D3B0"/>
-            <path d="M0 196h460M250 0v260M250 78h210" stroke="#E2DACA" stroke-width="16" fill="none"/>
-            <path class="route-base" d="M86 196H236q14 0 14-14V92q0-14 14-14h108" fill="none" stroke="#CDBB95" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
+            <rect x="286" y="18" width="150" height="46" rx="10" fill="#F5E9CF" stroke="#E6D3A8"/>
+            <path d="M0 196h460M250 0v260M250 78h210" stroke="#DAE1EB" stroke-width="16" fill="none"/>
+            <path class="route-base" d="M86 196H236q14 0 14-14V92q0-14 14-14h108" fill="none" stroke="#B9C6D6" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
             <path class="route-draw" d="M86 196H236q14 0 14-14V92q0-14 14-14h108" fill="none" stroke="#C9973B" stroke-width="4.5" stroke-linecap="round"/>
 
             <g class="pin-start">
               <circle cx="86" cy="196" r="15" fill="#0E1A2B" opacity=".12"/>
               <circle cx="86" cy="196" r="8" fill="#0E1A2B"/>
             </g>
-            <text x="30" y="236" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="12" font-weight="700" fill="#0E1A2B">White House Bansal PG</text>
+            <text x="26" y="240" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#0B1B33">White House Bansal PG</text>
 
             <g class="pin-end">
               <path d="M372 78c-9-10-14-17-14-24a14 14 0 0 1 28 0c0 7-5 14-14 24Z" fill="#0E1A2B"/>
               <circle cx="372" cy="54" r="5" fill="#E2B55A"/>
             </g>
-            <text x="300" y="100" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="12" font-weight="700" fill="#0E1A2B">Bennett University</text>
+            <text x="278" y="104" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#0B1B33">Bennett University</text>
 
-            <g transform="translate(264 122)">
-              <rect width="150" height="30" rx="15" fill="#0E1A2B"/>
-              <text x="75" y="19.5" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#fff">300 m · 10 min walk</text>
+            <g class="route-chip" transform="translate(262 128)">
+              <rect width="190" height="38" rx="19" fill="#0B1B33"/>
+              <text x="95" y="25" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="15.5" font-weight="700" fill="#fff">300 m · 10 min walk</text>
             </g>
 
             <circle class="walker" r="7" fill="#fff" stroke="#C9973B" stroke-width="3.5" transform="translate(372 78)"/>
@@ -751,7 +761,7 @@
               </div>
             </div>
 
-            <button class="btn btn-wa btn-block" type="submit">
+            <button class="btn btn-wa btn-block btn-shine" type="submit">
               <svg class="ic ic-fill" aria-hidden="true"><use href="#i-wa"/></svg>
               <span class="btn-label">Send enquiry on WhatsApp</span>
             </button>
@@ -798,7 +808,7 @@
       </div>
     </div>
 
-    <p class="footer-word" aria-hidden="true">White House</p>
+    <p class="footer-word" aria-hidden="true" data-letters>White House</p>
 
     <div class="footer-bottom">
       <p>&copy; <span data-year>2026</span> White House Bansal PG. All rights reserved.</p>
@@ -812,6 +822,16 @@
   <span class="fab-bubble" aria-hidden="true">Ask about rooms &amp; rent</span>
   <span class="fab-btn"><svg class="ic ic-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
 </a>
+
+<!-- Mobile quick-contact bar (replaces the floating button on phones) -->
+<nav class="dock" aria-label="Quick contact">
+  <a class="dock-btn dock-call" href="tel:+918006652971">
+    <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span>Call owner</span>
+  </a>
+  <a class="dock-btn dock-wa" href="https://wa.me/918006652971" target="_blank" rel="noopener" data-wa="Hi, I found White House Bansal PG online and would like to know more about the rooms and rent.">
+    <svg class="ic ic-fill" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+  </a>
+</nav>
 
 <!-- Lightbox -->
 <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
