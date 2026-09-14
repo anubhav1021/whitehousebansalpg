@@ -55,6 +55,6 @@ npx netlify-cli deploy --prod --dir .
 
 ## Contact
 
-Manish Baisla (owner): +91 80066 52971 ·
-[WhatsApp](https://wa.me/918006652971) ·
+Manish Baisla (owner): +91 99991 47052 ·
+[WhatsApp](https://wa.me/919999147052) ·
 [Instagram](https://www.instagram.com/baislamanish7777/)

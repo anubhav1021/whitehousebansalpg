@@ -4,7 +4,7 @@
   const $ = (s, root = d) => root.querySelector(s);
   const $$ = (s, root = d) => [...root.querySelectorAll(s)];
 
-  const WA_NUMBER = '918006652971';
+  const WA_NUMBER = '919999147052';
   const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -540,7 +540,7 @@
         submitBtn.disabled = false;
         $('.btn-label', submitBtn).textContent = 'Send enquiry on WhatsApp';
         status.hidden = false;
-        status.innerHTML = 'WhatsApp should now be open with your enquiry. Just tap <strong>Send</strong>. If it didn’t open, call <a href="tel:+918006652971">+91 80066 52971</a>.';
+        status.innerHTML = 'WhatsApp should now be open with your enquiry. Just tap <strong>Send</strong>. If it didn’t open, call <a href="tel:+919999147052">+91 99991 47052</a>.';
       }, 900);
     });
   }
